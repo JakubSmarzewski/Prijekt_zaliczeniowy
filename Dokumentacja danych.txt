@@ -1,0 +1,83 @@
+Tabela stanowiska(
+            id_stanowiska 		liczba, Klucz Główny
+            nazwa_stanowiska(20) 	pole tekstowe do 20 znaków, pole nie może być puste
+                          );
+
+
+Tabela pracownicy(
+                        id_pracownik		liczba, Klucz główny
+                        imie(20) 		pole tekstowe do 20 znaków, pole nie może być puste
+                        nazwisko(40)		pole tekstowe do 40 znaków, pole nie może być puste
+                        plec(1) 		pole tekstowe 1 znak, możliwe opcje do wyboru 'K' - kobieta, 'M' - mężczyzna, pole nie może być puste
+                        telefon(9) 		liczba 9 znaków, pole nie może być puste, pole musi być unikatowe
+                        narodowosc(30)		pole tekstowe do 30 znaków, pole nie może być puste
+                        stanowisko 		liczba, która odpowiada danemu stanowisku, Klucz obcy(stanowiska.id_stanowiska)
+                        wyplata 		liczba, pole nie może być puste
+                            );
+                            
+                            
+Tabela grafik_pracownikow(
+                                id 	 		liczba, Klucz główny
+                                id_pracownik		liczba, Klucz obcy(pracownicy.id_pracownik)
+                                dzien_tygodnia(12)	pole tekstowe do 12 znaków, pole nie może być puste
+                                );
+                                                                
+
+Tabela klienci(
+                    id_klient 		liczba, Klucz główny
+                    imie(20)		pole tekstowe do 20 znaków, pole nie może być puste
+                    nazwisko(40) 	pole tekstowe do 40 znaków, pole nie może byc puste
+                    plec(1)		pole tekstowe 1 znak, możliwe opcje do wyboru 'K' - kobieta, 'M' - mężczyzna, pole nie może być puste
+                    telefon(9)	 	liczba 9 znaków, pole nie może być puste, pole musi być unikatowe
+                    pesel(20)	 	pole tekstowe do 20 znaków, pole nie może być puste, pole musi być unikatowe, pesel został zapisany jako pole tekstowe ponieważ obywatele innych państw mogą posiadać pesele, które nie składają się wyłącznie z liczb
+                    narodowosc(30) 	pole tekstowe do 30 znaków, pole nie może być puste                                                                                 
+                    );
+                    
+  
+
+Tabela pokoje(
+                    id_pokoj 		liczba, Klucz główny
+                    max_osob(1) 	liczba, możliwe opcje do wyboru 1, 2, 3, 4, 5 - są to liczby oznaczające ilość miejsc w danym pokoju, pole nie może być puste
+                    id_pracownik	liczba, która odpowiada identyfikatorowi danego pracownika, który jest odpowiedzialny za danyc pokój, pole nie może być puste
+                    cena(3) 		liczba do 3 cyfr, pole nie może być puste
+                    );
+
+Tabela pobyt(
+                    id_pobyt 			liczba, Klucz główny
+                    id_klient 			liczba, pole nie może być puste, Klucz obcy(klienci.id_klient)
+                    id_pokoj 			liczba, pole nie może być puste, Klucz obcy(pokoje.id_pokoj)
+                    data_zameldowania 		data, pole nie może być puste
+                    data_wymeldowania 		data, pole nie może być puste
+                   
+                                        
+
+Tabela spis_atrakcji(
+                            id_atrakcja 		liczba, Klucz główny
+                            nazwa_atrakcji(30)	 	pole tekstowe do 30 znaków, pole nie może być puste
+                            cena number(3) 		liczba do 3 cyfr, pole nie może byc puste                 
+                            );
+                            
+
+                            
+Tabela atrakcje_klienta(
+                                id 		liczba, Klucz główny
+                                id_klient 	liczba, Klucz Obcy(klienci.id_klient)
+                                atrakcja 	liczba, Klucz Obcy(spis_atrakcji.id_atrakcja)                                      
+                                            ); 
+                                                                                        
+                                            
+Tabela menu_restauracji(
+                            id_posilek 		liczba, Klucz główny
+                            nazwa(30)		pole tekstowe do 30 znaków, pole nie może być puste
+                            cena(2)		liczba, pole nie może być puste
+                            );     
+                            
+                         
+                    
+Tabela restauracja(
+                        id_zamowienie 		liczba, Klucz główny
+                        posilek 		liczba, Klucz obcy(menu_restauracji.id_posilek)
+                        id_klient 		liczba, Klucz obcy(klienci.id_klient)
+                        data_zamowienia 	data, pole nie może być puste
+                            );       
+                            
