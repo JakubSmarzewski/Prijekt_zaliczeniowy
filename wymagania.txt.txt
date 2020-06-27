@@ -3,11 +3,13 @@ Projekt zostaje przedstawiony na ocenę 3.
 W projekcie znajdują się:
 Dokument motywacyjny,
 Prezentacja projektu,
+Diagram przedstawiający bazę danych,
 Dokumentacja danych, która zawiera się również w prezetacji.
 
 Baza posiada 10 tabel.
 Każda tabela jest w relacji  conajmniej z jedną z pozostałych.
 Każda tabela posiada conajmniej 10 rekordów.
+Każdy atrybut powinien posiadać przynajmniej jeden z więzów integralności.
 
 Przygotowane zostały zapytania:
 10 projekcji
